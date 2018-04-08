@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,9 @@ public class FragmentTextSimple extends Fragment {
         button_continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Service.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(editText_answer.getWindowToken(), 0);
+
                 Answers.getInstance().put_answer(textview_q_title.getText().toString(), editText_answer.getText().toString().trim());
                 ((SurveyActivity) mContext).go_to_next();
             }
@@ -79,10 +83,16 @@ public class FragmentTextSimple extends Fragment {
         }
 
         textview_q_title.setText(Html.fromHtml(q_data.getQuestionTitle()));
-        editText_answer.requestFocus();
-        InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Service.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(editText_answer, 0);
+    }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
 
+        if (isVisibleToUser) {
+            editText_answer.requestFocus();
+            InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Service.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(editText_answer, 0);
+        }
     }
 }
