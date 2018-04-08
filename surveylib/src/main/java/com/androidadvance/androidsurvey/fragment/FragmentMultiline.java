@@ -40,7 +40,6 @@ public class FragmentMultiline extends Fragment {
         button_continue.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
 
-                Log.e("Number", "Hide Keyboard");
                 InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Service.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(editText_answer.getWindowToken(), 0);
 
@@ -88,7 +87,6 @@ public class FragmentMultiline extends Fragment {
         super.setUserVisibleHint(isVisibleToUser);
 
         if (isVisibleToUser) {
-            //Log.e("Number", "Show Keyboard");
             editText_answer.requestFocus();
             InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Service.INPUT_METHOD_SERVICE);
             imm.showSoftInput(editText_answer, 0);
