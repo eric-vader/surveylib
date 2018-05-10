@@ -19,6 +19,7 @@ public class FragmentEnd extends Fragment {
 
     private FragmentActivity mContext;
     private TextView textView_end;
+    private Button button_finish;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,7 +28,7 @@ public class FragmentEnd extends Fragment {
                 R.layout.fragment_end, container, false);
 
 
-        Button button_finish = (Button) rootView.findViewById(R.id.button_finish);
+        button_finish = (Button) rootView.findViewById(R.id.button_finish);
         textView_end = (TextView) rootView.findViewById(R.id.textView_end);
 
 
@@ -52,6 +53,11 @@ public class FragmentEnd extends Fragment {
 
         assert survery_properties != null;
         textView_end.setText(Html.fromHtml(survery_properties.getEndMessage()));
+
+        if(survery_properties.getSkipEnd()) {
+            // TODO Hack to skip the end Fragment
+            button_finish.performClick();
+        }
 
     }
 }

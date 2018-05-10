@@ -19,6 +19,9 @@ public class SurveyProperties implements Serializable {
     @SerializedName("skip_intro")
     @Expose
     private Boolean skipIntro;
+    @SerializedName("skip_end")
+    @Expose
+    private Boolean skipEnd;
 
     /**
      * @return The title
@@ -76,4 +79,11 @@ public class SurveyProperties implements Serializable {
         this.skipIntro = skipIntro;
     }
 
+    public Boolean getSkipEnd() {
+        return skipEnd;
+    }
+
+    public void setSkipEnd(Boolean skipEnd) {
+        this.skipEnd = skipEnd;
+    }
 }
