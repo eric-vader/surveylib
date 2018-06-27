@@ -1,4 +1,4 @@
-package com.androidadvance.androidsurvey.adapters;
+package com.e2empire.survey.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

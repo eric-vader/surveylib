@@ -1,4 +1,4 @@
-package com.androidadvance.androidsurvey.fragment;
+package com.e2empire.survey.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,34 +10,28 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.androidadvance.androidsurvey.Answers;
-import com.androidadvance.androidsurvey.R;
-import com.androidadvance.androidsurvey.SurveyActivity;
-import com.androidadvance.androidsurvey.models.SurveyProperties;
+import com.e2empire.survey.R;
+import com.e2empire.survey.SurveyActivity;
+import com.e2empire.survey.models.SurveyProperties;
 
-public class FragmentEnd extends Fragment {
+
+public class FragmentStart extends Fragment {
 
     private FragmentActivity mContext;
-    private TextView textView_end;
-    private Button button_finish;
+    private TextView textView_start;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
-                R.layout.fragment_end, container, false);
+                R.layout.fragment_start, container, false);
 
-
-        button_finish = (Button) rootView.findViewById(R.id.button_finish);
-        textView_end = (TextView) rootView.findViewById(R.id.textView_end);
-
-
-        button_finish.setOnClickListener(new View.OnClickListener() {
+        textView_start = (TextView) rootView.findViewById(R.id.textView_start);
+        Button button_continue = (Button) rootView.findViewById(R.id.button_continue);
+        button_continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ((SurveyActivity) mContext).event_survey_completed(Answers.getInstance());
-
+                ((SurveyActivity) mContext).go_to_next();
             }
         });
 
@@ -52,12 +46,10 @@ public class FragmentEnd extends Fragment {
         SurveyProperties survery_properties = (SurveyProperties) getArguments().getSerializable("survery_properties");
 
         assert survery_properties != null;
-        textView_end.setText(Html.fromHtml(survery_properties.getEndMessage()));
+        textView_start.setText(Html.fromHtml(survery_properties.getIntroMessage()));
 
-        if(survery_properties.getSkipEnd()) {
-            // TODO Hack to skip the end Fragment
-            button_finish.performClick();
-        }
+
+
 
     }
 }
