@@ -1,4 +1,4 @@
-package com.androidadvance.androidsurvey.widgets;
+package com.e2empire.survey.widgets;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
@@ -8,7 +8,7 @@ import android.view.MotionEvent;
 /**
  * Created by Lee Howett on 2016-10-13.
  * <p>
- * com.androidadvance.androidsurvey.widgets
+ * com.e2empire.survey.widgets
  */
 
 public class NoSwipeViewPager extends ViewPager {

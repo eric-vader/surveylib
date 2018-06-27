@@ -1,4 +1,4 @@
-package com.androidadvance.androidsurvey;
+package com.e2empire.survey;
 
 import com.google.gson.Gson;
 

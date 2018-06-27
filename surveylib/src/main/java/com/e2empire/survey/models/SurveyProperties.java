@@ -1,4 +1,4 @@
-package com.androidadvance.androidsurvey.models;
+package com.e2empire.survey.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -74,7 +74,7 @@ The activity is started with a request code.
 
 Add this activity to your manifest file.
 ~~~~
-<activity android:name="com.androidadvance.androidsurvey.SurveyActivity"
+<activity android:name="com.e2empire.survey.SurveyActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden"/>
 ~~~~
