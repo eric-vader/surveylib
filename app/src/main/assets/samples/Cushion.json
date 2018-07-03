@@ -1,0 +1,21 @@
+{
+   "survey_properties":{
+      "intro_message":"Quality Control - Cushion",
+      "end_message":"Thank you.",
+      "skip_intro":true,
+      "skip_end":true
+   },
+   "questions":[
+      {
+         "question_type":"Radioboxes",
+         "question_title":"QC Passed?",
+         "description":"",
+         "required":true,
+         "random_choices":false,
+         "choices":[
+            "Passed",
+            "Failed"
+         ]
+      }
+   ]
+}

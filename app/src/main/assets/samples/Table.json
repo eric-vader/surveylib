@@ -1,0 +1,110 @@
+{
+   "survey_properties":{
+      "intro_message":"Quality Control - Table",
+      "end_message":"Thank you.",
+      "skip_intro":true,
+      "skip_end":true
+   },
+   "questions":[
+      {
+         "question_type":"Radioboxes",
+         "question_title":"Is the item shaky?",
+         "description":"",
+         "required":true,
+         "random_choices":false,
+         "choices":[
+            "Yes",
+            "No"
+         ]
+      },
+      {
+         "question_type":"Radioboxes",
+         "question_title":"Is the item free of rust / dust / mould?",
+         "description":"",
+         "required":true,
+         "random_choices":false,
+         "choices":[
+            "Yes",
+            "No"
+         ]
+      },
+      {
+         "question_type":"Radioboxes",
+         "question_title":"Are the legs aligned properly?",
+         "description":"",
+         "required":true,
+         "random_choices":false,
+         "choices":[
+            "Yes",
+            "No"
+         ]
+      },
+      {
+         "question_type":"Radioboxes",
+         "question_title":"Is the table top flat?",
+         "description":"",
+         "required":true,
+         "random_choices":false,
+         "choices":[
+            "Yes",
+            "No"
+         ]
+      },
+      {
+         "question_type":"Radioboxes",
+         "question_title":"Is there any dent / chip off / scracth?",
+         "description":"",
+         "required":true,
+         "random_choices":false,
+         "choices":[
+            "Yes",
+            "No"
+         ]
+      },
+      {
+         "question_type":"Radioboxes",
+         "question_title":"Is there any excessive glue / putty mark?",
+         "description":"",
+         "required":true,
+         "random_choices":false,
+         "choices":[
+            "Yes",
+            "No"
+         ]
+      },
+      {
+         "question_type":"Radioboxes",
+         "question_title":"Is the logo clearly and evenly stamped / embossed at the right position?",
+         "description":"",
+         "required":true,
+         "random_choices":false,
+         "choices":[
+            "Yes",
+            "No"
+         ]
+      },
+      {
+         "question_type":"Radioboxes",
+         "question_title":"Is the wood grain / knob acceptable?",
+         "description":"",
+         "required":true,
+         "random_choices":false,
+         "choices":[
+            "Yes",
+            "No, 5-7 knots",
+            "No, 8-10 knots"
+         ]
+      },
+      {
+         "question_type":"Radioboxes",
+         "question_title":"QC Passed?",
+         "description":"",
+         "required":true,
+         "random_choices":false,
+         "choices":[
+            "Passed",
+            "Failed"
+         ]
+      }
+   ]
+}
