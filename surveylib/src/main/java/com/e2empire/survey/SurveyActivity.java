@@ -28,13 +28,12 @@ public class SurveyActivity extends AppCompatActivity {
     private SurveyPojo mSurveyPojo;
     private ViewPager mPager;
     private String style_string = null;
+    final ArrayList<Fragment> arraylist_fragments = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_survey);
-
-
 
         if (getIntent().getExtras() != null) {
             Bundle bundle = getIntent().getExtras();
@@ -46,8 +45,6 @@ public class SurveyActivity extends AppCompatActivity {
 
 
         Log.i("json Object = ", String.valueOf(mSurveyPojo.getQuestions()));
-
-        final ArrayList<Fragment> arraylist_fragments = new ArrayList<>();
 
         //- START -
         if (!mSurveyPojo.getSurveyProperties().getSkipIntro()) {
@@ -110,25 +107,29 @@ public class SurveyActivity extends AppCompatActivity {
         }
 
         //- END -
-        FragmentEnd frag_end = new FragmentEnd();
-        Bundle eBundle = new Bundle();
-        eBundle.putSerializable("survery_properties", mSurveyPojo.getSurveyProperties());
-        eBundle.putString("style", style_string);
-        frag_end.setArguments(eBundle);
-        arraylist_fragments.add(frag_end);
-
+        if (!mSurveyPojo.getSurveyProperties().getSkipEnd()) {
+            FragmentEnd frag_end = new FragmentEnd();
+            Bundle eBundle = new Bundle();
+            eBundle.putSerializable("survery_properties", mSurveyPojo.getSurveyProperties());
+            eBundle.putString("style", style_string);
+            frag_end.setArguments(eBundle);
+            arraylist_fragments.add(frag_end);
+        }
 
         mPager = (ViewPager) findViewById(R.id.pager);
         AdapterFragmentQ mPagerAdapter = new AdapterFragmentQ(getSupportFragmentManager(), arraylist_fragments);
         mPager.setAdapter(mPagerAdapter);
 
-
     }
 
     public void go_to_next() {
-        mPager.setCurrentItem(mPager.getCurrentItem() + 1);
-    }
+        if(arraylist_fragments.size()-1 == mPager.getCurrentItem()) {
+            event_survey_completed();
+        } else {
+            mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+        }
 
+    }
 
     @Override
     public void onBackPressed() {
@@ -139,7 +140,8 @@ public class SurveyActivity extends AppCompatActivity {
         }
     }
 
-    public void event_survey_completed(Answers instance) {
+    private void event_survey_completed() {
+        Answers instance = Answers.getInstance();
         Intent returnIntent = new Intent();
         returnIntent.putExtra("answers", instance.get_json_object());
         setResult(Activity.RESULT_OK, returnIntent);
